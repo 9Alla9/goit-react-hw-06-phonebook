@@ -1,0 +1,11 @@
+.container {
+  max-width: 400px;
+  padding: 20px;
+  margin: auto;
+  background: rgb(144, 75, 75);
+  background: linear-gradient(
+    90deg,
+    rgba(144, 75, 75, 0.7455357142857143) 19%,
+    rgba(175, 153, 168, 0.9416141456582633) 73%
+  );
+}
