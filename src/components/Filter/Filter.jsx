@@ -1,5 +1,4 @@
 import css from './Filter.module.css';
-import { PropTypes } from 'prop-types';
 import { setStatusFilter } from 'redux/filterReducer';
 import { useSelector, useDispatch } from 'react-redux';
 
