@@ -11,7 +11,6 @@ const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
     items: DefaultContacts,
-    filter: '',
   },
   reducers: {
     addContacts(state, action) {
@@ -23,6 +22,5 @@ const contactsSlice = createSlice({
   },
 });
 
-export const { setContacts, addContacts, removeContacts } =
-  contactsSlice.actions;
+export const { addContacts, removeContacts } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;

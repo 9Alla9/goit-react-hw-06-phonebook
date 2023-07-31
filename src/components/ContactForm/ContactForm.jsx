@@ -8,9 +8,10 @@ import { nanoid } from 'nanoid';
 const ContactForm = () => {
   const [name, setname] = useState('');
   const [number, setnumber] = useState('');
-  const contacts = useSelector(state => state.contacts.items);
 
   const dispatch = useDispatch();
+  const contacts = useSelector(state => state.contacts.items);
+
   const handleChange = e => {
     const { name: inputName, value } = e.currentTarget;
     if (inputName === 'name') {
@@ -19,14 +20,19 @@ const ContactForm = () => {
       setnumber(value);
     }
   };
+
   const handleSubmit = e => {
     e.preventDefault();
-    const names = contacts.map(contact => contact.name);
-    if (names.indexOf(name) >= 0) {
+    const names = { id: nanoid() };
+    if (
+      contacts.find(
+        contact => contact.name.toLowerCase() === names.name.toLowerCase()
+      )
+    ) {
       alert(name + ' is already in contacts');
       return;
     }
-    dispatch(addContacts({ name, number, id: nanoid() }));
+    dispatch(addContacts({ name, number }));
     setname('');
     setnumber('');
   };
@@ -63,7 +69,4 @@ const ContactForm = () => {
   );
 };
 
-ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
 export default ContactForm;
