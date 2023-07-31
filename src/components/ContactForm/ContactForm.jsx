@@ -22,16 +22,15 @@ const ContactForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const names = { id: nanoid() };
     if (
       contacts.find(
-        contact => contact.name.toLowerCase() === names.name.toLowerCase()
+        contact => contact.name.toLowerCase() === name.toLowerCase()
       )
     ) {
       alert(name + ' is already in contacts');
       return;
     }
-    dispatch(addContacts({ name, number }));
+    dispatch(addContacts({ name, number, id: nanoid() }));
     setname('');
     setnumber('');
   };
